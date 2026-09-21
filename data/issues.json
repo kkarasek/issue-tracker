@@ -19,12 +19,5 @@
     "description": "Fine-tuning and testing",
     "priority": "medium",
     "status": "open"
-  },
-  {
-    "id": "28c72341-dc02-4017-b2d2-8dbc35082d4b",
-    "title": "string",
-    "description": "string",
-    "priority": "medium",
-    "status": "open"
   }
 ]
