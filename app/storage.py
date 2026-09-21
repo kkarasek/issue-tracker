@@ -4,8 +4,6 @@ import json
 DATA_DIR = Path("data")
 DATA_FILE = DATA_DIR / "issues.json"
 
-print(DATA_DIR)
-
 
 def load_data():
     if DATA_FILE.exists():
