@@ -1,0 +1,16 @@
+[
+  {
+    "id": "c285d64f-d3e1-4494-a10d-30f46f48108c",
+    "title": "Issue One \ud83d\udc38",
+    "description": "Add RAG document chunks",
+    "priority": "high",
+    "status": "open"
+  },
+  {
+    "id": "5bc62f28-cb2b-4ea2-a819-72c37648208f",
+    "title": "Issue Two \ud83e\udd92",
+    "description": "Connect to Cosmos DB",
+    "priority": "medium",
+    "status": "open"
+  }
+]
