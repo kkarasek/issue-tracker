@@ -1,7 +1,7 @@
 [
   {
     "id": "c285d64f-d3e1-4494-a10d-30f46f48108c",
-    "title": "Issue One \ud83d\udc38",
+    "title": "Issue One \ud83d\udc30",
     "description": "Add RAG document chunks",
     "priority": "high",
     "status": "open"
@@ -15,9 +15,9 @@
   },
   {
     "id": "e1b53c66-ccea-478b-9b2e-2640aea5ace4",
-    "title": "Issue Three \ud83e\uddea",
-    "description": "Fine-tune with HuggingFace",
-    "priority": "low",
+    "title": "Issue Three Updated \ud83c\udf4f",
+    "description": "Fine-tuning and testing",
+    "priority": "medium",
     "status": "open"
   }
 ]

@@ -1,7 +1,7 @@
 import uuid
 from fastapi import APIRouter, HTTPException, status
-from starlette.status import HTTP_201_CREATED
-from app.schemas import IssueCreate, IssueOut, IssueStatus
+from starlette.status import HTTP_201_CREATED, HTTP_404_NOT_FOUND
+from app.schemas import IssueCreate, IssueOut, IssueStatus, IssueUpdate
 from app.storage import load_data, save_data
 
 router = APIRouter(prefix="/api/v1/issues", tags=["issues"])
@@ -38,4 +38,26 @@ def get_issue(issue_id: str):
         if issue["id"] == issue_id:
             return issue
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                        detail="Issue not found")
+
+
+@router.put("/{issue_id}", response_model=IssueOut)
+def update_issue(issue_id: str, payload: IssueUpdate):
+    """Update a specific issue by id."""
+    issues = load_data()
+    for issue in issues:
+        if issue["id"] == issue_id:
+            if payload.title is not None:
+                issue["title"] = payload.title
+            if payload.description is not None:
+                issue["description"] = payload.description
+            if payload.priority is not None:
+                issue["priority"] = payload.priority.value
+            if payload.status is not None:
+                issue["status"] = payload.status.value
+
+            save_data(issues)
+            return issue
+
+    raise HTTPException(status_code=HTTP_404_NOT_FOUND,
                         detail="Issue not found")
