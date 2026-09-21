@@ -1,6 +1,6 @@
 import uuid
 from fastapi import APIRouter, HTTPException, status
-from starlette.status import HTTP_201_CREATED, HTTP_404_NOT_FOUND
+from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT, HTTP_404_NOT_FOUND
 from app.schemas import IssueCreate, IssueOut, IssueStatus, IssueUpdate
 from app.storage import load_data, save_data
 
@@ -58,6 +58,20 @@ def update_issue(issue_id: str, payload: IssueUpdate):
 
             save_data(issues)
             return issue
+
+    raise HTTPException(status_code=HTTP_404_NOT_FOUND,
+                        detail="Issue not found")
+
+
+@router.delete("/{issue_id}", status_code=HTTP_204_NO_CONTENT)
+def delete_issue(issue_id: str):
+    """Delete a specific issue by id"""
+    issues = load_data()
+    for issue in issues:
+        if issue["id"] == issue_id:
+            issues.remove(issue)
+            save_data(issues)
+            return
 
     raise HTTPException(status_code=HTTP_404_NOT_FOUND,
                         detail="Issue not found")
