@@ -12,5 +12,12 @@
     "description": "Connect to Cosmos DB",
     "priority": "medium",
     "status": "open"
+  },
+  {
+    "id": "e1b53c66-ccea-478b-9b2e-2640aea5ace4",
+    "title": "Issue Three \ud83e\uddea",
+    "description": "Fine-tune with HuggingFace",
+    "priority": "low",
+    "status": "open"
   }
 ]

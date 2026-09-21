@@ -14,7 +14,7 @@ async def get_issues():
     return issues
 
 
-@router.post("/", response_model=IssueOut, status_code=status.HTTP_201_CREATED)
+@router.post("/", response_model=IssueOut, status_code=HTTP_201_CREATED)
 def create_issue(payload: IssueCreate):
     """Create a new issue."""
     issues = load_data()
